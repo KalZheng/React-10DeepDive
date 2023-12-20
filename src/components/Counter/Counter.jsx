@@ -35,9 +35,15 @@ const Counter = memo(function Counter({ initialCount }) {
 
   function getID() {
     log("getID ", 2, "other");
-  
     return Math.random() * 1000;
-  };
+  }
+
+  // you can use this way to reset when 
+  // set is click, but there is a better way 
+  // by using key in the parent of this component
+  // useEffect(() => {
+  //   setCounterChanges([{ value: initialCount, id: getID() }]);
+  // }, [initialCount]);
 
   // const [counter, setCounter] = useState(initialCount);
   const [counterChanges, setCounterChanges] = useState([
